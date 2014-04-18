@@ -7,6 +7,7 @@ function MainScene:ctor(model)
     
     global.sceneMgr.p_model = model
     -------------------------变量定义开始-------------
+    self.m_startLine = nil
     self.m_blockLayer = nil
     self.m_uiLayer = nil
     -------------------------变量定义结束-------------
@@ -15,13 +16,19 @@ end
 
 function MainScene:_initLayer()
     display.newSprite("bg.png",display.cx,display.cy):addTo(self)
+    self.m_startLine = display.newSprite("startline.png")
+    self.m_startLine:setAnchorPoint(ccp(0,0))
+    self:addChild(self.m_startLine)
+
     self.m_blockLayer = display.newLayer():addTo(self)
     self.m_uiLayer = display.newLayer():addTo(self)
 
     self.m_blockLayer:setTag(TAG.BLOCK_LAYER)
     self.m_uiLayer:setTag(TAG.UI_LAYER)
+end
 
-    -- self.m_blockLayer:setTouchEnabled(true)
+function MainScene:showOrHideStartLine(isshow)
+    self.m_startLine:setVisible(isshow)
 end
 
 function MainScene:onEnter()

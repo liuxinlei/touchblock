@@ -27,6 +27,9 @@ function SceneMgr:startGame()
 
 	self.p_isGameStarted = true
 
+	local curScene = global.sceneMgr.p_curScene
+	curScene:showOrHideStartLine(false)
+
 	if self.p_model == GAME_MODEL.CLASSICAL then
 		self.p_speed = global.blockLayerMgr.p_blockh
 		global.uilayerMgr:startTime()
@@ -38,7 +41,7 @@ function SceneMgr:startGame()
 		global.uilayerMgr:startTimeDown()
 	end
 	if nil == self.m_renderHanlder then
-		self.m_renderHanlder = scheduler.scheduleUpdateGlobal(handler(self, self._onShedule))
+		self.m_renderHanlder = scheduler.scheduleUpdateGlobal(handler(self, self._render))
 	end
 end
 
@@ -69,15 +72,20 @@ function SceneMgr:stopGame()
 		end, 2)
 
 	self.p_score = 0
-	-- self.p_result = nil
 end
 
-function SceneMgr:_onShedule(dt)
+--游戏的总帧循环
+function SceneMgr:_render(dt)
 	if self.p_model == GAME_MODEL.ARCADE then
+		self.p_speed = self.p_speed + ARCADE_SPEED_ADD
+		-- print("00000000",self.p_speed)
+		if self.p_speed >= ARCADE_SPEED_MAX then
+			self.p_speed = ARCADE_SPEED_MAX
+		end
 		self:moveHandler()
 		global.uilayerMgr:updateScore()
 	end	 
-	global.blockLayerMgr:updateBlockPos()
+	global.blockLayerMgr:updateBlocks()
 	if global.uilayerMgr.p_isStartTime then
 		if self.p_model == GAME_MODEL.BUDDHIST then
 			dt = -dt
@@ -115,6 +123,7 @@ function SceneMgr:_isGameOver()
 		end
 	else
 		if nil ~= global.blockLayerMgr.p_shouldTouchBlock then
+			print("00000000",self.p_speed)
 			--让长方块停止移动
 			self.p_speed = 0
 			--缓动回出错的模块

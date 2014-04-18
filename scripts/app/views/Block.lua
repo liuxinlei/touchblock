@@ -20,8 +20,6 @@ function Block:ctor(type,row)
 
 	global.blockLayerMgr.p_blockw = self:getBoundingBox().size.width
 	global.blockLayerMgr.p_blockh = self:getBoundingBox().size.height
-
-	-- self:setTouchEnabled(true)
 end
 
 function Block:_initContent()
@@ -34,7 +32,7 @@ function Block:_initContent()
 	self:addChild(self.m_bg)
 	self:addChild(self.m_arrow)
 
-	self.m_touchMask = display.newColorLayer(ccc4(128, 128, 128, 200))
+	self.m_touchMask = display.newColorLayer(ccc4(256, 256, 256, 128))
 		:size(self.m_bg:getBoundingBox().size)
 		:addTo(self)
 
@@ -43,6 +41,9 @@ end
 
 function Block:touchEffect()
 	if self.p_type == 0 then
+		self.m_touchMask:setColor(ccc3(229, 124, 128))
+		self.m_touchMask:setOpacity(255)
+		self.m_touchMask:setVisible(true)
 		local action1 = CCBlink:create(5, 15)
     	self:runAction(action1)
     else
@@ -69,6 +70,7 @@ function Block:getTouchRect()
 end
 
 function Block:reset()
+
 	if self.p_type == 0 then
 		self.m_arrow:setVisible(false)
 		self.m_bg:setVisible(true)

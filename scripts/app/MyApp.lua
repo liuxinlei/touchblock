@@ -15,6 +15,10 @@ end
 
 function MyApp:run()
     CCFileUtils:sharedFileUtils():addSearchPath("res/")
+    for _,v in pairs(GAME_MUSIC) do
+    	audio.preloadSound(v)
+    end
+
     global.sceneMgr = require("app.managers.SceneMgr").new()
 	global.blockLayerMgr = require("app.managers.BlockLayerMgr").new()
 	global.uilayerMgr = require("app.managers.UIlayerManager").new()

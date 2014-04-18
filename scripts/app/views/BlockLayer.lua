@@ -6,6 +6,8 @@ local BlockLayer = class("BlockLayer", function()
 	return display.newLayer()
 end)
 
+local soundNum = 1
+
 function BlockLayer:ctor()
 	-------------------------变量定义开始-------------
 	self.m_touchedRow = 0
@@ -33,9 +35,13 @@ end
 
 function BlockLayer:_onTouch(event,x,y)
 	if event == "began" then
+		self:_touchHandler(event,x,y)
         return true -- 在 began 事件里返回 true，表示要接收后续的触摸事件
     end
-    if not global.sceneMgr.p_isGameStarted then
+end
+
+function BlockLayer:_touchHandler(event,x,y)
+	if not global.sceneMgr.p_isGameStarted then
     	global.sceneMgr:startGame()
     end
     local blocks = global.blockLayerMgr.p_blocks
@@ -48,6 +54,9 @@ function BlockLayer:_onTouch(event,x,y)
     			if block.p_type == 0 then
     				global.sceneMgr:stopGame()
     			else
+    				audio.playSound(GAME_MUSIC[soundNum])
+    				soundNum = soundNum + 1
+    				if soundNum > 4 then soundNum = 1 end
     				if global.sceneMgr.p_model ~= GAME_MODEL.ACADE then
     					global.sceneMgr:moveHandler()
     				end
@@ -85,6 +94,30 @@ function BlockLayer:moveAllBlocks()
 			end
 		end
 		table.remove(tb,1)
+	end
+end
+
+function BlockLayer:tweenAllBlocks()
+	local tb = global.blockLayerMgr.p_movequeue
+	local speed = tb[1]
+	if nil == speed then return end
+	table.remove(tb,1)
+	local blocks = global.blockLayerMgr.p_blocks
+	local count = 0
+	for _,block in pairs(blocks) do
+		local y = block:getPositionY()
+		transition.moveBy(block, {y = -speed,time = 0.1,onComplete = function()
+			count = count + 1 
+			if block:getPositionY() <= -global.blockLayerMgr.p_blockh*2 then
+				block:reset()
+				if global.sceneMgr:canMoveBlocks() then
+					block:setPositionY((MAX_ROW -2)*global.blockLayerMgr.p_blockh)
+				end
+			end
+			if count >= MAX_ROW*MAX_COLUMN then
+				if #tb ~= 0 then print("居然还有时间！！！！") self:tweenAllBlocks() end
+			end
+			end})
 	end
 end
 

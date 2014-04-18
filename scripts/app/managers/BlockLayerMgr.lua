@@ -25,8 +25,12 @@ function BlockLayerMgr:initBlocks()
 	blocklayer:addChild(self.m_blockLayer)
 end
 
-function BlockLayerMgr:updateBlockPos()
-	self.m_blockLayer:moveAllBlocks()
+function BlockLayerMgr:updateBlocks()
+	if GAME_MODEL.ARCADE == global.sceneMgr.p_model then
+		self.m_blockLayer:moveAllBlocks()
+	else
+		self.m_blockLayer:tweenAllBlocks()
+	end
 end
 
 function BlockLayerMgr:handleSpecialEnd()
