@@ -6,7 +6,7 @@ local BlockLayerMgr = class("BlockLayerMgr")
 
 function BlockLayerMgr:ctor()
 	-------------------------变量定义开始-------------
-    self.p_blocks = {}
+    self.p_blocks = {}		--存储所有Blocks的二维数组
     self.m_blockLayer = nil
     self.p_blockw = 0
     self.p_blockh = 0
@@ -15,6 +15,8 @@ function BlockLayerMgr:ctor()
 
     --街机模式中：应该被点击但是没有被点击的长方块
     self.p_shouldTouchBlock = nil
+    --为了追踪最高一行的坐标记录下其中一个方块
+    self.m_lastBlockIndex = 0
     -------------------------变量定义结束-------------
 end
 

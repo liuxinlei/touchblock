@@ -6,6 +6,7 @@ require("framework.cc.init")
 require("app.global")
 
 scheduler = require(cc.PACKAGE_NAME..".scheduler")
+gamestate = require(cc.PACKAGE_NAME..".api.GameState")
 
 local MyApp = class("MyApp", cc.mvc.AppBase)
 
@@ -18,7 +19,7 @@ function MyApp:run()
     for _,v in pairs(GAME_MUSIC) do
     	audio.preloadSound(v)
     end
-
+    global.gamecenterMgr = require("app.managers.GameCenterMgr").new()
     global.sceneMgr = require("app.managers.SceneMgr").new()
 	global.blockLayerMgr = require("app.managers.BlockLayerMgr").new()
 	global.uilayerMgr = require("app.managers.UIlayerManager").new()

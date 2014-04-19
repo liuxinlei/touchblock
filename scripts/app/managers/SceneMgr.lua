@@ -13,13 +13,14 @@ function SceneMgr:ctor()
 	self.p_score = 0
 
 	self.m_isSucceed = false
+	self.m_transitionType = nil
 	self.p_isGameStarted = false
 	self.p_result = nil
 end
 
-function SceneMgr:replaceScene(name,arg)
+function SceneMgr:replaceScene(name,transitionType,time,arg)
 	self.p_curScene = require("app.scenes."..name).new(arg)
-	display.replaceScene(self.p_curScene, "CROSSFADE", 0.5)
+	display.replaceScene(self.p_curScene, transitionType, time,true)
 end
 
 --游戏开始的总接口
@@ -68,8 +69,8 @@ function SceneMgr:stopGame()
 	end
 
 	scheduler.performWithDelayGlobal(function ()
-		self:replaceScene("EndScene",self.p_result)
-		end, 2)
+		self:replaceScene("EndScene",self.m_transitionType,0.5,{result = self.p_result,model = self.p_model})
+		end, 1)
 
 	self.p_score = 0
 end
@@ -78,7 +79,6 @@ end
 function SceneMgr:_render(dt)
 	if self.p_model == GAME_MODEL.ARCADE then
 		self.p_speed = self.p_speed + ARCADE_SPEED_ADD
-		-- print("00000000",self.p_speed)
 		if self.p_speed >= ARCADE_SPEED_MAX then
 			self.p_speed = ARCADE_SPEED_MAX
 		end
@@ -103,7 +103,7 @@ end
 
 function SceneMgr:canMoveBlocks()
 	--经典模式中所有的模块已经移动完毕，就不会继续移动了
-	if self.p_model == GAME_MODEL.CLASSICAL and self.p_score >= CLASSICAL_ROWS - 3 then
+	if self.p_model == GAME_MODEL.CLASSICAL and self.p_score >= CLASSICAL_ROWS - 4 then
 		return false 
 	end
 	return true
@@ -113,17 +113,23 @@ function SceneMgr:_isGameOver()
 		
 	if self.p_model == GAME_MODEL.CLASSICAL then
 		if self.p_score >= CLASSICAL_ROWS then
+			self:moveHandler()
+			global.blockLayerMgr:updateBlocks()
+			self.m_transitionType = "moveInT"
 			self.m_isSucceed = true
 			return true
+		else
+			self.m_isSucceed = false
 		end
 	elseif self.p_model == GAME_MODEL.BUDDHIST then
 		if global.uilayerMgr:getUseTime() <= 0 then
 			global.uilayerMgr:setNotice(TIME_OUT_TIPS)
+			self.m_transitionType = "shrinkGrow"
 			return true
 		end
 	else
 		if nil ~= global.blockLayerMgr.p_shouldTouchBlock then
-			print("00000000",self.p_speed)
+			self.m_transitionType = "shrinkGrow"
 			--让长方块停止移动
 			self.p_speed = 0
 			--缓动回出错的模块

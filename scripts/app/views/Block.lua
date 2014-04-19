@@ -6,8 +6,7 @@ local Block = class("Block", function()
 	return display.newLayer()
 end)
 
-function Block:ctor(type,row)
-	self.p_type = type
+function Block:ctor(row)
 	self.p_row = row
 
 	self.p_isTouched = false
@@ -69,8 +68,8 @@ function Block:getTouchRect()
 	return CCRect(touchBox:getMinX(),newMinY,touchBox.size.width,newh)
 end
 
-function Block:reset()
-
+function Block:reset(type)
+	self.p_type = type
 	if self.p_type == 0 then
 		self.m_arrow:setVisible(false)
 		self.m_bg:setVisible(true)
