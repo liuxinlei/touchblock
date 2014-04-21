@@ -39,6 +39,18 @@ GAME_MODEL_NAME = {
 	"禅模式" 
 }
 
+GAME_MODEL_NAME_SHORT = {
+	"经 典",
+	"街 机",
+	"禅" 
+}
+
+LEADBOARD_IDS = {
+	"862970669_1",
+	"862970669_2",
+	"862970669_3",
+}
+
 --街机模式方块移动初始速度
 ARCADE_SPEED = 10
 

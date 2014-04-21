@@ -8,6 +8,19 @@ function GameCenterMgr:ctor()
 	self.m_localinfo = {}
 
 	self:_initNativeInfo()
+	self:_initGameCenter()
+end
+
+function GameCenterMgr:_initGameCenter()
+	luaoc.callStaticMethod("GameCenter", "login")
+end
+
+function GameCenterMgr:showLeaderboard()
+	luaoc.callStaticMethod("GameCenter", "showLeaderboard")
+end
+
+function GameCenterMgr:reportScore(data)
+	luaoc.callStaticMethod("GameCenter", "reportScore",data)
 end
 
 function GameCenterMgr:_initNativeInfo()
@@ -51,12 +64,14 @@ function GameCenterMgr:updateNativeInfo(data)
 		if nativeScore > newScore then
 			self.m_localinfo[model] = newScore
 			gamestate.save(self.m_localinfo)
+			self:reportScore({score = newScore*1000,category = LEADBOARD_IDS[data.model+1]})
 			return true
 		end
 	else
 		if nativeScore < newScore then
 			self.m_localinfo[model] = newScore
 			gamestate.save(self.m_localinfo)
+			self:reportScore({score = newScore,category = LEADBOARD_IDS[data.model+1]})
 			return true
 		end
 	end

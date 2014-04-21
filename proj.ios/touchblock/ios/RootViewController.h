@@ -24,8 +24,12 @@
  ****************************************************************************/
 
 #import <UIKit/UIKit.h>
+#import "GADBannerView.h"
+#import <GameKit/GameKit.h>
 
-@interface RootViewController : UIViewController
+@interface RootViewController : UIViewController{
+    GADBannerView *bannerView_;
+}
 
 - (BOOL) prefersStatusBarHidden;
 

@@ -43,7 +43,7 @@
 }
 
 - (BOOL) shouldAutorotate {
-    return YES;
+    return YES; 
 }
 
 //fix not hide status on ios7
@@ -57,14 +57,28 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+- (void)viewDidLoad {
+    NSLog(@"111111111111");
+    [super viewDidLoad];
+    // 在屏幕低部创建标准尺寸的视图。
+    // 在GADAdSize.h中对可用的AdSize常量进行说明。
+    bannerView_ = [[GADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - kGADAdSizeBanner.size.height, kGADAdSizeBanner.size.width, kGADAdSizeBanner.size.height)];
+    
+    // 指定广告单元ID。
+    bannerView_.adUnitID = @"a1534bc2f0899e9";
+    
+    // 告知运行时文件，在将用户转至广告的展示位置之后恢复哪个UIViewController
+    // 并将其添加至视图层级结构。
+    bannerView_.rootViewController = self;
+    [self.view addSubview:bannerView_];
+    
+    // 启动一般性请求并在其中加载广告。
+    [bannerView_ loadRequest:[GADRequest request]];
 }
 
 - (void)dealloc {
     [super dealloc];
+    [bannerView_ release];
 }
 
 @end

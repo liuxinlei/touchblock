@@ -15,7 +15,7 @@
 		<string>Icon-72.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.a-rocket.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.A-Rocket.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -35,6 +35,8 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<dict>
 		<key>accelerometer</key>
+		<true/>
+		<key>gamekit</key>
 		<true/>
 		<key>opengles-1</key>
 		<true/>

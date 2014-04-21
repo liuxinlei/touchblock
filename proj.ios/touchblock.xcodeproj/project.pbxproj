@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1CF04171903CB2200B284B8 /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CF04151903CB2200B284B8 /* GameCenter.m */; };
+		B1CF041A1903CB2200B284B8 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CF04191903CB2200B284B8 /* GameKit.framework */; };
+		B1CF042A1903CB2200B284B8 /* AdsAdmob.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CF04291903CB2200B284B8 /* AdsAdmob.m */; };
+		B1CF042C1903CB2200B284B8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CF042B1903CB2200B284B8 /* MessageUI.framework */; };
+		B1CF052C1903CB2200B284B8 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CF052B1903CB2200B284B8 /* libGoogleAdMobAds.a */; };
+		B1CF052E1903CB2200B284B8 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CF052D1903CB2200B284B8 /* AdSupport.framework */; };
 		F4323CF716D3298E0072B773 /* libquickcocos2dx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F48F590816D21F8C000651BE /* libquickcocos2dx.a */; };
 		F4482F2116A0555000FDDDAD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4482F1A16A0555000FDDDAD /* Default-568h@2x.png */; };
 		F4482F2216A0555000FDDDAD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F4482F1B16A0555000FDDDAD /* Default.png */; };
@@ -49,6 +55,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B1CF04151903CB2200B284B8 /* GameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenter.m; sourceTree = "<group>"; };
+		B1CF04161903CB2200B284B8 /* GameCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenter.h; sourceTree = "<group>"; };
+		B1CF04191903CB2200B284B8 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		B1CF04281903CB2200B284B8 /* AdsAdmob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsAdmob.h; sourceTree = "<group>"; };
+		B1CF04291903CB2200B284B8 /* AdsAdmob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsAdmob.m; sourceTree = "<group>"; };
+		B1CF042B1903CB2200B284B8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		B1CF05221903CB2200B284B8 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		B1CF05231903CB2200B284B8 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		B1CF05241903CB2200B284B8 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		B1CF05251903CB2200B284B8 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		B1CF05261903CB2200B284B8 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		B1CF05271903CB2200B284B8 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		B1CF05281903CB2200B284B8 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		B1CF05291903CB2200B284B8 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		B1CF052A1903CB2200B284B8 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		B1CF052B1903CB2200B284B8 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		B1CF052D1903CB2200B284B8 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		F4482F1A16A0555000FDDDAD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F4482F1B16A0555000FDDDAD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		F4482F1C16A0555000FDDDAD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -93,6 +116,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1CF052E1903CB2200B284B8 /* AdSupport.framework in Frameworks */,
+				B1CF042C1903CB2200B284B8 /* MessageUI.framework in Frameworks */,
+				B1CF041A1903CB2200B284B8 /* GameKit.framework in Frameworks */,
 				F4323CF716D3298E0072B773 /* libquickcocos2dx.a in Frameworks */,
 				F452BFD01687F0F200DC5BCC /* UIKit.framework in Frameworks */,
 				F456F0FD15EE0CF600FCF3E2 /* SystemConfiguration.framework in Frameworks */,
@@ -102,6 +128,7 @@
 				F4949C791699553B00DB561E /* AddressBook.framework in Frameworks */,
 				F456ECC815EE018E00FCF3E2 /* OpenGLES.framework in Frameworks */,
 				F452BFC51687EEF900DC5BCC /* CoreText.framework in Frameworks */,
+				B1CF052C1903CB2200B284B8 /* libGoogleAdMobAds.a in Frameworks */,
 				F4F40D1B16573CE0007937AD /* StoreKit.framework in Frameworks */,
 				F456F10515EE0D2D00FCF3E2 /* MobileCoreServices.framework in Frameworks */,
 				F456F0F915EE0CDB00FCF3E2 /* CFNetwork.framework in Frameworks */,
@@ -115,6 +142,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B1CF05211903CB2200B284B8 /* Admob */ = {
+			isa = PBXGroup;
+			children = (
+				B1CF05221903CB2200B284B8 /* GADAdMobExtras.h */,
+				B1CF05231903CB2200B284B8 /* GADAdNetworkExtras.h */,
+				B1CF05241903CB2200B284B8 /* GADAdSize.h */,
+				B1CF05251903CB2200B284B8 /* GADBannerView.h */,
+				B1CF05261903CB2200B284B8 /* GADBannerViewDelegate.h */,
+				B1CF05271903CB2200B284B8 /* GADInterstitial.h */,
+				B1CF05281903CB2200B284B8 /* GADInterstitialDelegate.h */,
+				B1CF05291903CB2200B284B8 /* GADRequest.h */,
+				B1CF052A1903CB2200B284B8 /* GADRequestError.h */,
+				B1CF052B1903CB2200B284B8 /* libGoogleAdMobAds.a */,
+			);
+			path = Admob;
+			sourceTree = "<group>";
+		};
 		F456ECB615EE018E00FCF3E2 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +181,9 @@
 		F456ECC415EE018E00FCF3E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1CF052D1903CB2200B284B8 /* AdSupport.framework */,
+				B1CF042B1903CB2200B284B8 /* MessageUI.framework */,
+				B1CF04191903CB2200B284B8 /* GameKit.framework */,
 				F4949C781699553B00DB561E /* AddressBook.framework */,
 				F456ECCB15EE018E00FCF3E2 /* AudioToolbox.framework */,
 				F456ECCD15EE018E00FCF3E2 /* AVFoundation.framework */,
@@ -203,11 +250,16 @@
 		F4D26BC616C7D0D2004442B6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				B1CF05211903CB2200B284B8 /* Admob */,
+				B1CF04151903CB2200B284B8 /* GameCenter.m */,
+				B1CF04161903CB2200B284B8 /* GameCenter.h */,
 				F4D26BC716C7D0D2004442B6 /* AppController.h */,
 				F4D26BC816C7D0D2004442B6 /* AppController.mm */,
 				F4D26BC916C7D0D2004442B6 /* main.m */,
 				F4D26BCA16C7D0D2004442B6 /* RootViewController.h */,
 				F4D26BCB16C7D0D2004442B6 /* RootViewController.mm */,
+				B1CF04281903CB2200B284B8 /* AdsAdmob.h */,
+				B1CF04291903CB2200B284B8 /* AdsAdmob.m */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -251,6 +303,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0440;
+				TargetAttributes = {
+					F456ECC015EE018E00FCF3E2 = {
+						DevelopmentTeam = ZTQ5Q2Z687;
+					};
+				};
 			};
 			buildConfigurationList = F456ECBB15EE018E00FCF3E2 /* Build configuration list for PBXProject "touchblock" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -311,8 +368,10 @@
 			files = (
 				F4D26BCC16C7D0D2004442B6 /* AppController.mm in Sources */,
 				F4D26BCD16C7D0D2004442B6 /* main.m in Sources */,
+				B1CF04171903CB2200B284B8 /* GameCenter.m in Sources */,
 				F4F34ED2183CD04B0077580F /* SimulatorConfig.cpp in Sources */,
 				F4D26BCE16C7D0D2004442B6 /* RootViewController.mm in Sources */,
+				B1CF042A1903CB2200B284B8 /* AdsAdmob.m in Sources */,
 				F4E50FE516CF7B6500AA7E90 /* AppDelegate.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +531,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/cocos2dx/platform/third_party/ios/libraries\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/luajit/ios\"",
+					"$(PROJECT_DIR)/touchblock/ios/Admob/Add-ons/GoogleAnalyticsServicesiOS_3.03",
+					"$(PROJECT_DIR)/touchblock/ios/Admob",
 				);
 				OTHER_LDFLAGS = (
 					"-lxml2",
@@ -541,6 +602,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/cocos2dx/platform/third_party/ios/libraries\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/luajit/ios\"",
+					"$(PROJECT_DIR)/touchblock/ios/Admob/Add-ons/GoogleAnalyticsServicesiOS_3.03",
+					"$(PROJECT_DIR)/touchblock/ios/Admob",
 				);
 				OTHER_LDFLAGS = (
 					"-lxml2",

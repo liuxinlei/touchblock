@@ -7,6 +7,7 @@ require("app.global")
 
 scheduler = require(cc.PACKAGE_NAME..".scheduler")
 gamestate = require(cc.PACKAGE_NAME..".api.GameState")
+luaoc = require(cc.PACKAGE_NAME..".luaoc")
 
 local MyApp = class("MyApp", cc.mvc.AppBase)
 

@@ -90,7 +90,7 @@ function EndScene:ctor(result)
 			event.target:setScale(1.0)
 		end)
 		:onButtonClicked(function()
-			
+			global.gamecenterMgr:showLeaderboard()
 		end)
 		:pos(display.cx + 170, display.cy - 150)
 		:addTo(self)
