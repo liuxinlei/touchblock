@@ -31,6 +31,9 @@ function SceneMgr:startGame()
 	local curScene = global.sceneMgr.p_curScene
 	curScene:showOrHideStartLine(false)
 
+	--如果有新手引导界面，则移除
+	curScene:removeGuid()
+
 	if self.p_model == GAME_MODEL.CLASSICAL then
 		self.p_speed = global.blockLayerMgr.p_blockh
 		global.uilayerMgr:startTime()

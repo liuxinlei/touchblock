@@ -11,11 +11,12 @@ CONFIG_SCREEN_HEIGHT = 960
 -- auto scale mode
 CONFIG_SCREEN_AUTOSCALE = "FIXED_WIDTH"
 
+APPID = 862970669
+-- APPID = 836919450
+
 GAME_MUSIC = {
-	"sound/1.mp3",
-	"sound/2.mp3",
-	"sound/3.mp3",
-	"sound/4.mp3"
+	click = "sound/click.mp3",
+	click_error = "sound/click_error.mp3"
 }
 
 TAG = {
@@ -33,26 +34,8 @@ GAME_MODEL = {
 	BUDDHIST  = 2 	--禅
 }
 
-GAME_MODEL_NAME = {
-	"经典模式",
-	"街机模式",
-	"禅模式" 
-}
-
-GAME_MODEL_NAME_SHORT = {
-	"经 典",
-	"街 机",
-	"禅" 
-}
-
-LEADBOARD_IDS = {
-	"862970669_1",
-	"862970669_2",
-	"862970669_3",
-}
-
 --街机模式方块移动初始速度
-ARCADE_SPEED = 10
+ARCADE_SPEED = 15
 
 --街机模式每次速度增加
 ARCADE_SPEED_ADD = 0.005
@@ -61,27 +44,15 @@ ARCADE_SPEED_ADD = 0.005
 ARCADE_SPEED_MAX = 30
 
 --经典模式的方块行数
-CLASSICAL_ROWS = 10
+CLASSICAL_ROWS = 50
 
 --禅模式限制时间
 BUDDHIST_TIME = 30
 
---失败提示语
-FAILED_TIPS = "失败"
-
---时间到提示
-TIME_OUT_TIPS = "时间到了！"
-
---历史最佳提示语
-BEST_TIPS = "新纪录！"
-
-BEST_LABEL = "最佳："
-
-GUID_TEXT = {
-	"指引：关",
-	"指引：开"	
+LEADBOARD_IDS = {
+	"862970669_1",
+	"862970669_2",
+	"862970669_3",
 }
-
-RANK_TEXT = "排行榜"
-
-RATE_TEXT = "评 分"
+--评分时跳转的Url
+RATE_URL = "itms-apps://itunes.apple.com/app/id%d"

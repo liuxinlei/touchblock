@@ -6,12 +6,12 @@ local BlockLayerMgr = class("BlockLayerMgr")
 
 function BlockLayerMgr:ctor()
 	-------------------------变量定义开始-------------
-    self.p_blocks = {}		--存储所有Blocks的二维数组
+    self.p_blocks = nil		--存储所有Blocks的二维数组
     self.m_blockLayer = nil
     self.p_blockw = 0
     self.p_blockh = 0
 
-    self.p_movequeue = {}
+    self.p_movequeue = nil
 
     --街机模式中：应该被点击但是没有被点击的长方块
     self.p_shouldTouchBlock = nil
@@ -21,6 +21,9 @@ function BlockLayerMgr:ctor()
 end
 
 function BlockLayerMgr:initBlocks()
+	self.p_blocks = {}
+	self.p_movequeue = {}
+	
 	local blocklayer = global.sceneMgr.p_curScene:getChildByTag(TAG.BLOCK_LAYER)
 	self.m_blockLayer = require("app.views.BlockLayer").new()
 	self.m_blockLayer:initBlocks()
@@ -48,10 +51,11 @@ function BlockLayerMgr:stop()
 end
 
 function BlockLayerMgr:clearAll()
-	self.p_blocks = {}
+	self.p_blocks = nil
 	self.m_blockLayer:clearAll()
 	self.m_blockLayer = nil
 	self.p_shouldTouchBlock = nil
+	self.p_movequeue = nil
 end
 
 return BlockLayerMgr

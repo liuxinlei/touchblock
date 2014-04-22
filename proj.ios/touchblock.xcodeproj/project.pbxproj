@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1C69FE4190521EB0072473B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1C69FE6190521EB0072473B /* InfoPlist.strings */; };
 		B1CF04171903CB2200B284B8 /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CF04151903CB2200B284B8 /* GameCenter.m */; };
 		B1CF041A1903CB2200B284B8 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CF04191903CB2200B284B8 /* GameKit.framework */; };
 		B1CF042A1903CB2200B284B8 /* AdsAdmob.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CF04291903CB2200B284B8 /* AdsAdmob.m */; };
@@ -55,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B1C69FE5190521EB0072473B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B1C69FE7190521EC0072473B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		B1CF04151903CB2200B284B8 /* GameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenter.m; sourceTree = "<group>"; };
 		B1CF04161903CB2200B284B8 /* GameCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenter.h; sourceTree = "<group>"; };
 		B1CF04191903CB2200B284B8 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -162,6 +165,7 @@
 		F456ECB615EE018E00FCF3E2 = {
 			isa = PBXGroup;
 			children = (
+				B1C69FE6190521EB0072473B /* InfoPlist.strings */,
 				F4499C7116C7CDE20059FF37 /* quickcocos2dx.xcodeproj */,
 				F456ECD515EE018E00FCF3E2 /* touchblock */,
 				F48E6F76166B264500295A03 /* Resources */,
@@ -356,6 +360,7 @@
 				F4482F2616A0555000FDDDAD /* Icon@2x.png in Resources */,
 				F4730C1E16C1509700280298 /* res in Resources */,
 				F4730C1F16C1509700280298 /* scripts in Resources */,
+				B1C69FE4190521EB0072473B /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +382,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B1C69FE6190521EB0072473B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1C69FE5190521EB0072473B /* en */,
+				B1C69FE7190521EC0072473B /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F456EFBB15EE019300FCF3E2 /* Debug */ = {

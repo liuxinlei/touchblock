@@ -20,6 +20,12 @@ function MyApp:run()
     for _,v in pairs(GAME_MUSIC) do
     	audio.preloadSound(v)
     end
+
+    if device.language == "cn" then
+        require("zh_cn")
+    else
+        require("zh_en")
+    end
     global.gamecenterMgr = require("app.managers.GameCenterMgr").new()
     global.sceneMgr = require("app.managers.SceneMgr").new()
 	global.blockLayerMgr = require("app.managers.BlockLayerMgr").new()

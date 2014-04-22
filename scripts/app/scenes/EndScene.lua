@@ -15,7 +15,7 @@ function EndScene:ctor(result)
 		text = GAME_MODEL_NAME[result.model + 1],
 		font = "Marker Felt",
 		x = display.cx,
-		y = display.top - 200,
+		y = display.top - 100,
 		size = 70,
 		align = ui.TEXT_ALIGN_CENTER
 		})
@@ -62,6 +62,7 @@ function EndScene:ctor(result)
 			event.target:setScale(1.0)
 		end)
 		:onButtonClicked(function()
+			audio.playSound(GAME_MUSIC.click)
 			global.sceneMgr:replaceScene("StartScene","pageTurn",0.5)
 		end)
 		:pos(display.cx - 170, display.cy - 150)
@@ -76,6 +77,7 @@ function EndScene:ctor(result)
 			event.target:setScale(1.0)
 		end)
 		:onButtonClicked(function()
+			audio.playSound(GAME_MUSIC.click)
 			global.sceneMgr:replaceScene("MainScene",nil,0,global.sceneMgr.p_model)
 		end)
 		:pos(display.cx, display.cy - 150)
@@ -90,11 +92,20 @@ function EndScene:ctor(result)
 			event.target:setScale(1.0)
 		end)
 		:onButtonClicked(function()
+			audio.playSound(GAME_MUSIC.click)
 			global.gamecenterMgr:showLeaderboard()
 		end)
 		:pos(display.cx + 170, display.cy - 150)
 		:addTo(self)
+end
 
+function EndScene:onEnter()
+	--每次结束玩得次数+1，到达10此后提示评分
+	global.gamecenterMgr:rateManager()
+end
+
+function EndScene:onExit()
+	
 end
 
 return EndScene

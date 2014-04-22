@@ -6,6 +6,8 @@ local GameCenterMgr = class("GameCenterMgr")
 
 function GameCenterMgr:ctor()
 	self.m_localinfo = {}
+	self.m_playTimes = 0
+	self.m_isRated = false
 
 	self:_initNativeInfo()
 	self:_initGameCenter()
@@ -39,7 +41,8 @@ function GameCenterMgr:_initNativeInfo()
     gamestate.init(GameStateEventListener, "localInfo.txt", "A-Rocket")
     if gamestate.load() ~= nil then
     	self.m_localinfo = gamestate.load()
-    	global.isOpenGuid = self.m_localinfo.isOpenGuid
+    	global.isOpenGuid = self.m_localinfo.isOpenGuid or global.isOpenGuid
+    	self.m_isRated = self.m_localinfo.isRated or false
     else
     	self.m_localinfo = {}
     end
@@ -85,6 +88,28 @@ end
 function GameCenterMgr:updateSettings()
 	self.m_localinfo.isOpenGuid = global.isOpenGuid
 	gamestate.save(self.m_localinfo)
+end
+
+function GameCenterMgr:rate()
+	device.openURL(string.format(RATE_URL,APPID))
+end
+
+function GameCenterMgr:rateManager()
+	if self.m_isRated then return end
+	if self.m_playTimes >= 10 then
+		device.showAlert(RATE_TEXT, RATE_ALERT_TITLE, {RATE_ALERT_DISAGREE,RATE_ALERT_AGREE}, function(event)
+			if event.buttonIndex == 2 then
+				self:rate()
+				self.m_isRated = true
+				self.m_localinfo.isRated = self.m_isRated
+				gamestate.save(self.m_localinfo)
+				return
+			else
+				self.m_playTimes = 0
+			end 
+		end)
+	end
+	self.m_playTimes = self.m_playTimes + 1
 end
 
 return GameCenterMgr

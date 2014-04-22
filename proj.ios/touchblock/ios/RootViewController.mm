@@ -58,7 +58,6 @@
 }
 
 - (void)viewDidLoad {
-    NSLog(@"111111111111");
     [super viewDidLoad];
     // 在屏幕低部创建标准尺寸的视图。
     // 在GADAdSize.h中对可用的AdSize常量进行说明。

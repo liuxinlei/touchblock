@@ -6,8 +6,6 @@ local BlockLayer = class("BlockLayer", function()
 	return display.newLayer()
 end)
 
-local soundNum = 1
-
 function BlockLayer:ctor()
 	-------------------------变量定义开始-------------
 	self.m_touchedRow = 0
@@ -51,13 +49,11 @@ function BlockLayer:_touchHandler(event,x,y)
     	if touchInSprite then
     		block:touchEffect()
     		if block.p_type == 0 then
+    			audio.playSound(GAME_MUSIC.click_error)
     			global.sceneMgr:stopGame()
     		else
     			--音效
-    			audio.playSound(GAME_MUSIC[soundNum])
-    			soundNum = soundNum + 1
-    			if soundNum > 4 then soundNum = 1 end
-    			--音效结束
+    			audio.playSound(GAME_MUSIC.click)
 
     			if not global.sceneMgr.p_isGameStarted then
     				global.sceneMgr:startGame()
@@ -130,9 +126,9 @@ function BlockLayer:tweenAllBlocks()
 			end
 			local y = block:getPositionY()
 			transition.moveBy(block, {y = -speed,time = 0.1,onComplete = function() 
-				if i == MAX_ROW and j == MAX_COLUMN then
-					if #tb ~= 0 then print("居然还有时间！！！！") self:tweenAllBlocks() end
-				end
+				-- if i == MAX_ROW and j == MAX_COLUMN then
+				-- 	if #tb ~= 0 then print("居然还有时间！！！！") self:tweenAllBlocks() end
+				-- end
 				end})
 		end
 	end
