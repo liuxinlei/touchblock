@@ -52,6 +52,7 @@ end
 
 function MainScene:onEnter()
     global.blockLayerMgr:initBlocks()
+    self.m_startLine:setScaleY(global.sceneMgr.p_scaleY)
     global.blockLayerMgr:start()
     global.uilayerMgr:initLayer()
 
@@ -65,6 +66,8 @@ function MainScene:onExit()
     self.m_startLine = nil
     self.m_blockLayer = nil
     self.m_uiLayer = nil
+
+    global.sceneMgr.p_score = 0
 end
 
 return MainScene

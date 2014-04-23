@@ -16,6 +16,8 @@ function SceneMgr:ctor()
 	self.m_transitionType = nil
 	self.p_isGameStarted = false
 	self.p_result = nil
+
+	self.p_scaleY = 1
 end
 
 function SceneMgr:replaceScene(name,transitionType,time,arg)
@@ -72,14 +74,14 @@ function SceneMgr:stopGame()
 	end
 
 	scheduler.performWithDelayGlobal(function ()
-		self:replaceScene("EndScene",self.m_transitionType,0.5,{result = self.p_result,model = self.p_model})
+		self:replaceScene("EndScene",self.m_transitionType,0.3,{result = self.p_result,model = self.p_model})
 		end, 1)
-
-	self.p_score = 0
+	self.m_isSucceed = false
 end
 
 --游戏的总帧循环
 function SceneMgr:_render(dt)
+	global.blockLayerMgr:touchHandler()
 	if self.p_model == GAME_MODEL.ARCADE then
 		self.p_speed = self.p_speed + ARCADE_SPEED_ADD
 		if self.p_speed >= ARCADE_SPEED_MAX then
@@ -89,7 +91,7 @@ function SceneMgr:_render(dt)
 		global.uilayerMgr:updateScore()
 	end	 
 	global.blockLayerMgr:updateBlocks()
-	if global.uilayerMgr.p_isStartTime then
+	if global.uilayerMgr.p_isStartTime and self.p_model ~= GAME_MODEL.ARCADE then
 		if self.p_model == GAME_MODEL.BUDDHIST then
 			dt = -dt
 		end
@@ -106,7 +108,7 @@ end
 
 function SceneMgr:canMoveBlocks()
 	--经典模式中所有的模块已经移动完毕，就不会继续移动了
-	if self.p_model == GAME_MODEL.CLASSICAL and self.p_score >= CLASSICAL_ROWS - 4 then
+	if self.p_model == GAME_MODEL.CLASSICAL and self.p_score >= CLASSICAL_ROWS - 5 then
 		return false 
 	end
 	return true

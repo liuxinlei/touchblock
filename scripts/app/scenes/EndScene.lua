@@ -13,7 +13,6 @@ function EndScene:ctor(result)
 
 	ui.newTTFLabel({
 		text = GAME_MODEL_NAME[result.model + 1],
-		font = "Marker Felt",
 		x = display.cx,
 		y = display.top - 100,
 		size = 70,
@@ -24,11 +23,9 @@ function EndScene:ctor(result)
 
 	self.m_resultLabel = ui.newTTFLabel({
 		text = result.result,
-		font = "Marker Felt",
 		x = display.cx,
 		y = display.cy + 130,
 		size = 70,
-		-- color = ccc3(255, 0, 0),
 		align = ui.TEXT_ALIGN_CENTER
 		})
 	self:addChild(self.m_resultLabel)
@@ -43,11 +40,9 @@ function EndScene:ctor(result)
 	if nil ~= bestStr and bestStr ~= BEST_LABEL then
 		ui.newTTFLabel({
 			text = bestStr,
-			font = "Marker Felt",
-			x = display.cx + 100,
-			y = display.cy + 80,
+			x = display.cx ,
+			y = display.cy + 60,
 			size = 40,
-			-- color = ccc3(255, 0, 0),
 			align = ui.TEXT_ALIGN_CENTER
 			})
 			:addTo(self)

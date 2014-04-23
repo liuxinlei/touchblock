@@ -15,16 +15,16 @@ end
 
 function UIlayerManager:initLayer()
 	local uilayer = global.sceneMgr.p_curScene:getChildByTag(TAG.UI_LAYER)
-	self.m_textLabel = ui.newTTFLabel({
-		text = "0.000",
+	self.m_textLabel = ui.newTTFLabelWithOutline({
+		text = "",
 		x = display.cx,
 		y = display.top - 100,
-		size = 50,
-		color = ccc3(255, 0, 0),
+		size = 60,
+		color = ccc3(255, 255, 255),
+		outlineColor = ccc3(255, 255, 255),
 		align = ui.TEXT_ALIGN_CENTER
 		})
 	uilayer:addChild(self.m_textLabel)
-
 	self.m_textLabel:setVisible(false)
 end
 
@@ -35,12 +35,12 @@ function UIlayerManager:startTime()
 end
 
 function UIlayerManager:stopTime()
-	self.p_isStartTime = true
+	self.p_isStartTime = false
 end
 
 function UIlayerManager:updateTime(dt)
 	self.m_time = self.m_time + dt
-	self.m_usetimeStr = string.format("%.3f", self.m_time)
+	self.m_usetimeStr = string.format("%.3f", self.m_time).."\""
 	self.m_textLabel:setString(self.m_usetimeStr)
 end
 

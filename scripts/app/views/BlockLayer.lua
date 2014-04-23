@@ -9,6 +9,7 @@ end)
 function BlockLayer:ctor()
 	-------------------------变量定义开始-------------
 	self.m_touchedRow = 0
+	self.m_movenum = 0
     -------------------------变量定义结束-------------
     self:setTouchEnabled(true)
     self:addTouchEventListener(handler(self, self._onTouch))
@@ -36,16 +37,25 @@ end
 
 function BlockLayer:_onTouch(event,x,y)
 	if event == "began" then
-		self:_touchHandler(event,x,y)
+		-- self:touchHandler(event,x,y)
+		local touchdata = {x = x,y = y}
+		table.insert(global.blockLayerMgr.p_touchqueue,touchdata)
+		if not global.sceneMgr.p_isGameStarted then
+			self:touchHandler()
+		end
         return true -- 在 began 事件里返回 true，表示要接收后续的触摸事件
     end
 end
 
-function BlockLayer:_touchHandler(event,x,y)
+function BlockLayer:touchHandler()
+	local tb = global.blockLayerMgr.p_touchqueue
+	local touch = tb[1]
+	if nil == touch then return end
+	table.remove(tb,1)
     --只有被点击行的上一行可以被点击
     local blocks = global.blockLayerMgr.p_blocks[self.m_touchedRow + 1]
     for _,block in pairs(blocks) do
-    	local touchInSprite = block:getTouchRect():containsPoint(CCPoint(x, y))
+    	local touchInSprite = block:getTouchRect():containsPoint(CCPoint(touch.x, touch.y))
     	if touchInSprite then
     		block:touchEffect()
     		if block.p_type == 0 then
@@ -111,25 +121,24 @@ function BlockLayer:tweenAllBlocks()
 	if nil == speed then return end
 	table.remove(tb,1)
 	local allBlocks = global.blockLayerMgr.p_blocks
-	for i,blocks in pairs(allBlocks) do
+	for i,blocks in ipairs(allBlocks) do
 		local lastrowy = allBlocks[self.m_lastBlockIndex][1]:getPositionY()
 		local arrowColumn = math.random(1,MAX_COLUMN)
+		local isMoved = false
 		for j,block in pairs(blocks) do
 			local type = 0
-			if block:getPositionY() <= -global.blockLayerMgr.p_blockh*2 then
+			if block:getPositionY() <= -2*global.blockLayerMgr.p_blockh and self:checkCanMove(i,self.m_lastBlockIndex) then
 				if j == arrowColumn then type = 1 end
 				block:reset(type)
-				if global.sceneMgr:canMoveBlocks() then
-					block:setPositionY(lastrowy + global.blockLayerMgr.p_blockh)
-					self.m_lastBlockIndex = i
-				end
+				block:setPositionY(lastrowy + global.blockLayerMgr.p_blockh)
+				isMoved = true
 			end
 			local y = block:getPositionY()
-			transition.moveBy(block, {y = -speed,time = 0.1,onComplete = function() 
-				-- if i == MAX_ROW and j == MAX_COLUMN then
-				-- 	if #tb ~= 0 then print("居然还有时间！！！！") self:tweenAllBlocks() end
-				-- end
-				end})
+			transition.moveBy(block, {y = -speed,time = 0.15})
+		end
+		if isMoved then 
+			self.m_lastBlockIndex = i
+			self.m_movenum = self.m_movenum + 1 
 		end
 	end
 end
@@ -147,9 +156,24 @@ function BlockLayer:handleSpecialEnd()
 	end
 end
 
+function BlockLayer:checkCanMove(index,lastindex)
+	if self.m_movenum >= CLASSICAL_ROWS - MAX_ROW and global.sceneMgr.p_model == GAME_MODEL.CLASSICAL then
+		return false
+	end
+
+	if index == 1 and lastindex == MAX_ROW then
+		return true
+	elseif index == lastindex + 1 then
+		return true
+	else
+		return false
+	end   
+end
+
 function BlockLayer:clearAll()
 	self:removeAllChildren()
 	self.m_touchedRow = 0
+	self.m_movenum = 0
 end
 
 

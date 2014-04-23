@@ -24,11 +24,11 @@ function StartScene:_init()
 	self:_addBtn("btn_start.png",GAME_MODEL_NAME_SHORT[1], function()
 		audio.playSound(GAME_MUSIC.click)
 		global.sceneMgr:replaceScene("MainScene",nil,0,GAME_MODEL.CLASSICAL)
-	end, display.cx, display.cy + 400)
+	end, display.cx, display.cy + 360)
 	self:_addBtn("btn_start.png",GAME_MODEL_NAME_SHORT[2], function()
 		audio.playSound(GAME_MUSIC.click)
 		global.sceneMgr:replaceScene("MainScene",nil,0,GAME_MODEL.ARCADE)
-	end, display.cx, display.cy + 250)
+	end, display.cx, display.cy + 230)
 	self:_addBtn("btn_start.png", GAME_MODEL_NAME_SHORT[3],function()
 		audio.playSound(GAME_MUSIC.click)
 		global.sceneMgr:replaceScene("MainScene",nil,0,GAME_MODEL.BUDDHIST)
@@ -54,8 +54,7 @@ function StartScene:_init()
 		x = 90,
 		y = display.cy - 10,
 		text = GUID_TEXT[global.isOpenGuid],
-		font = "Marker Felt",
-		size = 40,
+		size = 30,
 		align = ui.TEXT_ALIGN_CENTER
 		})
 	MainMenu:addChild(self.m_guidBtn)
@@ -68,8 +67,7 @@ function StartScene:_init()
 		x = display.cx,
 		y = display.cy - 10,
 		text = RANK_TEXT,
-		font = "Marker Felt",
-		size = 40,
+		size = 30,
 		align = ui.TEXT_ALIGN_CENTER
 		})
 	MainMenu:addChild(self.m_rateBtn)
@@ -82,8 +80,7 @@ function StartScene:_init()
 		x = display.right - 50,
 		y = display.cy - 10,
 		text = RATE_TEXT,
-		font = "Marker Felt",
-		size = 40,
+		size = 30,
 		align = ui.TEXT_ALIGN_CENTER
 		})
 	MainMenu:addChild(self.m_rankBtn)
@@ -91,7 +88,7 @@ end
 
 function StartScene:_addBtn(imgName,text,callback,x,y)
 	cc.ui.UIPushButton.new(imgName, {scale9 = true})
-		:setButtonLabel(cc.ui.UILabel.new({text = text,size = 55,font = "Marker Felt",align = ui.TEXT_ALIGN_CENTER}))
+		:setButtonLabel(cc.ui.UILabel.new({text = text,size = 55,align = ui.TEXT_ALIGN_CENTER}))
 		:onButtonPressed(function(event)
 			event.target:setScale(1.1)
 		end)

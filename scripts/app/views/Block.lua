@@ -17,6 +17,9 @@ function Block:ctor(row)
 
 	self:_initContent()
 
+	global.sceneMgr.p_scaleY =  display.height/DESGIN_HEIGHT
+	self:setScaleY(global.sceneMgr.p_scaleY)
+
 	global.blockLayerMgr.p_blockw = self:getBoundingBox().size.width
 	global.blockLayerMgr.p_blockh = self:getBoundingBox().size.height
 end
@@ -31,7 +34,7 @@ function Block:_initContent()
 	self:addChild(self.m_bg)
 	self:addChild(self.m_arrow)
 
-	self.m_touchMask = display.newColorLayer(ccc4(256, 256, 256, 128))
+	self.m_touchMask = display.newColorLayer(ccc4(0, 0, 0, 190))
 		:size(self.m_bg:getBoundingBox().size)
 		:addTo(self)
 

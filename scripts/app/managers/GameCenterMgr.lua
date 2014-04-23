@@ -53,7 +53,7 @@ function GameCenterMgr:updateNativeInfo(data)
 	local model = tostring(data.model) 
 	local nativeScore = self.m_localinfo[model]
 	--失败不记录得分
-	if newScore == FAILED_TIPS then
+	if newScore == FAILED_TIPS or nil == newScore then
 		return false
 	end
 	--第一次
@@ -64,10 +64,10 @@ function GameCenterMgr:updateNativeInfo(data)
 	end
 
 	if data.model == GAME_MODEL.CLASSICAL then
-		if nativeScore > newScore then
+		if self:findAndsubStr(nativeScore) > self:findAndsubStr(newScore) then
 			self.m_localinfo[model] = newScore
 			gamestate.save(self.m_localinfo)
-			self:reportScore({score = newScore*1000,category = LEADBOARD_IDS[data.model+1]})
+			self:reportScore({score = self:findAndsubStr(newScore)*1000,category = LEADBOARD_IDS[data.model+1]})
 			return true
 		end
 	else
@@ -110,6 +110,15 @@ function GameCenterMgr:rateManager()
 		end)
 	end
 	self.m_playTimes = self.m_playTimes + 1
+end
+
+function GameCenterMgr:findAndsubStr(str)
+	if nil == str then return end
+	if string.find(str, "\"") ~= nil then
+		local newStr = string.sub(str,0,string.len(str)-2)
+		return tonumber(newStr)
+	end
+	return tonumber(str)
 end
 
 return GameCenterMgr

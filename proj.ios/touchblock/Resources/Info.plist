@@ -10,6 +10,20 @@
 	<string></string>
 	<key>CFBundleIconFiles</key>
 	<array>
+		<string>Icon-40</string>
+		<string>Icon-Small</string>
+		<string>Icon-60</string>
+		<string>Icon.png</string>
+		<string>Icon@2x.png</string>
+		<string>Icon-72.png</string>
+	</array>
+	<key>CFBundleIconFiles~ipad</key>
+	<array>
+		<string>Icon-Small</string>
+		<string>Icon-40</string>
+		<string>Icon-Small-50</string>
+		<string>Icon-76</string>
+		<string>Icon-60</string>
 		<string>Icon.png</string>
 		<string>Icon@2x.png</string>
 		<string>Icon-72.png</string>
@@ -28,6 +42,8 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>LSHasLocalizedDisplayName</key>
+	<true/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIPrerenderedIcon</key>
@@ -47,8 +63,6 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>LSHasLocalizedDisplayName</key>
-	<true/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

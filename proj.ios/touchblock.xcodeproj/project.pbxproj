@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1BFF56A190649D900F33CC1 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BFF569190649D900F33CC1 /* Icon-60@2x.png */; };
+		B1BFF5751906523D00F33CC1 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BFF56C1906523D00F33CC1 /* Icon-40.png */; };
+		B1BFF5761906523D00F33CC1 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BFF56D1906523D00F33CC1 /* Icon-40@2x.png */; };
+		B1BFF5771906523D00F33CC1 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BFF56E1906523D00F33CC1 /* Icon-72@2x.png */; };
+		B1BFF5781906523D00F33CC1 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BFF56F1906523D00F33CC1 /* Icon-76.png */; };
+		B1BFF5791906523D00F33CC1 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BFF5701906523D00F33CC1 /* Icon-76@2x.png */; };
+		B1BFF57A1906523D00F33CC1 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BFF5711906523D00F33CC1 /* Icon-Small-50.png */; };
+		B1BFF57B1906523D00F33CC1 /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BFF5721906523D00F33CC1 /* Icon-Small-50@2x.png */; };
+		B1BFF57C1906523D00F33CC1 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BFF5731906523D00F33CC1 /* Icon-Small.png */; };
+		B1BFF57D1906523D00F33CC1 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BFF5741906523D00F33CC1 /* Icon-Small@2x.png */; };
 		B1C69FE4190521EB0072473B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1C69FE6190521EB0072473B /* InfoPlist.strings */; };
 		B1CF04171903CB2200B284B8 /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CF04151903CB2200B284B8 /* GameCenter.m */; };
 		B1CF041A1903CB2200B284B8 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CF04191903CB2200B284B8 /* GameKit.framework */; };
@@ -56,6 +66,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B1BFF569190649D900F33CC1 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		B1BFF56C1906523D00F33CC1 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
+		B1BFF56D1906523D00F33CC1 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
+		B1BFF56E1906523D00F33CC1 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		B1BFF56F1906523D00F33CC1 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		B1BFF5701906523D00F33CC1 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
+		B1BFF5711906523D00F33CC1 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		B1BFF5721906523D00F33CC1 /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		B1BFF5731906523D00F33CC1 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		B1BFF5741906523D00F33CC1 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		B1C69FE5190521EB0072473B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B1C69FE7190521EC0072473B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		B1CF04151903CB2200B284B8 /* GameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenter.m; sourceTree = "<group>"; };
@@ -221,6 +241,16 @@
 		F48ABAD516A057D000A60C5B /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				B1BFF56C1906523D00F33CC1 /* Icon-40.png */,
+				B1BFF56D1906523D00F33CC1 /* Icon-40@2x.png */,
+				B1BFF56E1906523D00F33CC1 /* Icon-72@2x.png */,
+				B1BFF56F1906523D00F33CC1 /* Icon-76.png */,
+				B1BFF5701906523D00F33CC1 /* Icon-76@2x.png */,
+				B1BFF5711906523D00F33CC1 /* Icon-Small-50.png */,
+				B1BFF5721906523D00F33CC1 /* Icon-Small-50@2x.png */,
+				B1BFF5731906523D00F33CC1 /* Icon-Small.png */,
+				B1BFF5741906523D00F33CC1 /* Icon-Small@2x.png */,
+				B1BFF569190649D900F33CC1 /* Icon-60@2x.png */,
 				F4482F1A16A0555000FDDDAD /* Default-568h@2x.png */,
 				F4482F1B16A0555000FDDDAD /* Default.png */,
 				F4482F1C16A0555000FDDDAD /* Default@2x.png */,
@@ -353,14 +383,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4482F2116A0555000FDDDAD /* Default-568h@2x.png in Resources */,
+				B1BFF56A190649D900F33CC1 /* Icon-60@2x.png in Resources */,
+				B1BFF57D1906523D00F33CC1 /* Icon-Small@2x.png in Resources */,
+				B1BFF57B1906523D00F33CC1 /* Icon-Small-50@2x.png in Resources */,
 				F4482F2216A0555000FDDDAD /* Default.png in Resources */,
+				B1BFF5781906523D00F33CC1 /* Icon-76.png in Resources */,
 				F4482F2316A0555000FDDDAD /* Default@2x.png in Resources */,
+				B1BFF57A1906523D00F33CC1 /* Icon-Small-50.png in Resources */,
 				F4482F2416A0555000FDDDAD /* Icon-72.png in Resources */,
+				B1BFF57C1906523D00F33CC1 /* Icon-Small.png in Resources */,
 				F4482F2516A0555000FDDDAD /* Icon.png in Resources */,
 				F4482F2616A0555000FDDDAD /* Icon@2x.png in Resources */,
 				F4730C1E16C1509700280298 /* res in Resources */,
 				F4730C1F16C1509700280298 /* scripts in Resources */,
+				B1BFF5761906523D00F33CC1 /* Icon-40@2x.png in Resources */,
+				B1BFF5751906523D00F33CC1 /* Icon-40.png in Resources */,
 				B1C69FE4190521EB0072473B /* InfoPlist.strings in Resources */,
+				B1BFF5791906523D00F33CC1 /* Icon-76@2x.png in Resources */,
+				B1BFF5771906523D00F33CC1 /* Icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@ function BlockLayerMgr:ctor()
     self.p_blockh = 0
 
     self.p_movequeue = nil
+    self.p_touchqueue = nil
 
     --街机模式中：应该被点击但是没有被点击的长方块
     self.p_shouldTouchBlock = nil
@@ -23,6 +24,7 @@ end
 function BlockLayerMgr:initBlocks()
 	self.p_blocks = {}
 	self.p_movequeue = {}
+	self.p_touchqueue = {}
 	
 	local blocklayer = global.sceneMgr.p_curScene:getChildByTag(TAG.BLOCK_LAYER)
 	self.m_blockLayer = require("app.views.BlockLayer").new()
@@ -36,6 +38,10 @@ function BlockLayerMgr:updateBlocks()
 	else
 		self.m_blockLayer:tweenAllBlocks()
 	end
+end
+
+function BlockLayerMgr:touchHandler()
+	self.m_blockLayer:touchHandler()
 end
 
 function BlockLayerMgr:handleSpecialEnd()
@@ -56,6 +62,7 @@ function BlockLayerMgr:clearAll()
 	self.m_blockLayer = nil
 	self.p_shouldTouchBlock = nil
 	self.p_movequeue = nil
+	self.p_touchqueue = nil
 end
 
 return BlockLayerMgr

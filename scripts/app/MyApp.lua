@@ -31,7 +31,7 @@ function MyApp:run()
 	global.blockLayerMgr = require("app.managers.BlockLayerMgr").new()
 	global.uilayerMgr = require("app.managers.UIlayerManager").new()
 
-    global.sceneMgr:replaceScene("StartScene")
+    global.sceneMgr:replaceScene("LoadScene")
 end
 
 return MyApp

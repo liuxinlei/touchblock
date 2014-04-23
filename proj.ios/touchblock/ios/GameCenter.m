@@ -28,6 +28,7 @@ static UIViewController* currentModalViewController = nil;
     GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
     if (leaderboardController != nil) {
         leaderboardController.leaderboardDelegate = self;
+        leaderboardController.viewState = GKGameCenterViewControllerStateDefault;
         
         UIWindow *window = [[UIApplication sharedApplication] keyWindow];
         currentModalViewController = [[UIViewController alloc] init];
@@ -37,9 +38,8 @@ static UIViewController* currentModalViewController = nil;
 }
 
 +(void)reportScore:(NSDictionary *)dict{
-    int *score = [[dict objectForKey:@"score"] intValue];
+    int64_t *score = [[dict objectForKey:@"score"] intValue];
     NSString *category = [dict objectForKey:@"category"];
-    NSLog(@"111111111111  %@",category);
     GKScore *scoreReporter = [[[GKScore alloc] initWithCategory:category] autorelease];
     scoreReporter.value = score;
     

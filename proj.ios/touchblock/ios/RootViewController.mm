@@ -61,7 +61,12 @@
     [super viewDidLoad];
     // 在屏幕低部创建标准尺寸的视图。
     // 在GADAdSize.h中对可用的AdSize常量进行说明。
-    bannerView_ = [[GADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - kGADAdSizeBanner.size.height, kGADAdSizeBanner.size.width, kGADAdSizeBanner.size.height)];
+//    bannerView_ = [[GADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - kGADAdSizeBanner.size.height, kGADAdSizeBanner.size.width, kGADAdSizeBanner.size.height)];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeLeaderboard origin:CGPointMake((self.view.frame.size.width -kGADAdSizeLeaderboard.size.width)/2, self.view.frame.size.height - kGADAdSizeLeaderboard.size.height)];
+    }else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner origin:CGPointMake(0, self.view.frame.size.height - kGADAdSizeBanner.size.height)];
+    }
     
     // 指定广告单元ID。
     bannerView_.adUnitID = @"a1534bc2f0899e9";

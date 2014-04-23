@@ -1,12 +1,14 @@
 
 -- 0 - disable debug info, 1 - less debug info, 2 - verbose debug info
-DEBUG = 2
-DEBUG_FPS = true
-DEBUG_MEM = true
+DEBUG = 1
+DEBUG_FPS = false
+DEBUG_MEM = false
 
 -- design resolution
 CONFIG_SCREEN_WIDTH  = 640
 CONFIG_SCREEN_HEIGHT = 960
+
+DESGIN_HEIGHT = 960
 
 -- auto scale mode
 CONFIG_SCREEN_AUTOSCALE = "FIXED_WIDTH"
@@ -35,10 +37,10 @@ GAME_MODEL = {
 }
 
 --街机模式方块移动初始速度
-ARCADE_SPEED = 15
+ARCADE_SPEED = 14
 
 --街机模式每次速度增加
-ARCADE_SPEED_ADD = 0.005
+ARCADE_SPEED_ADD = 0.007
 
 --街机模式中速度的最大值
 ARCADE_SPEED_MAX = 30
@@ -52,7 +54,7 @@ BUDDHIST_TIME = 30
 LEADBOARD_IDS = {
 	"862970669_1",
 	"862970669_2",
-	"862970669_3",
+	"862970669_3"
 }
 --评分时跳转的Url
 RATE_URL = "itms-apps://itunes.apple.com/app/id%d"
